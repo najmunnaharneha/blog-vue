@@ -63,5 +63,9 @@ export const usePostsStore = defineStore('posts-store', {
     deletePost(id) {
       this.posts = this.posts.filter((p) => p.id !== id)
     },
+    savePost(id) {
+      const post = this.posts.find((p) => p.id === id)
+      post.is_saved = !post.is_saved
+    },
   },
 })
