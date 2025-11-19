@@ -17,10 +17,16 @@ const setPostFilter = () => {
   <div class="header">
     <div>
       <h3>{{ postFilter === 'all' ? 'All posts' : 'Saved posts' }}</h3>
+      <span v-show="postStore.loading" class="material-icons">cached</span>
     </div>
     <button @click="setPostFilter">
       {{ postFilter === 'all' ? 'Show saved posts' : 'Show all posts' }}
     </button>
+  </div>
+
+  <!-- Error Message -->
+  <div v-if="postStore.errMsg" class="error">
+    {{ postStore.errMsg }}
   </div>
 
   <div v-if="postFilter === 'all'">

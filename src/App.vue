@@ -1,5 +1,9 @@
 <script setup>
+import { usePostsStore } from '@/stores/posts'
 import { RouterLink, RouterView } from 'vue-router'
+
+const postStore = usePostsStore()
+postStore.getPosts()
 </script>
 
 <template>
