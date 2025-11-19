@@ -46,6 +46,10 @@ export const usePostsStore = defineStore('posts-store', {
     sorted() {
       return this.posts.sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
     },
+    saved: (state) =>
+      state.posts
+        .filter((p) => p.is_saved)
+        .sort((a, b) => new Date(b.created_at) - new Date(a.created_at)),
   },
 
   // methods
